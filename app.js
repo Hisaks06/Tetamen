@@ -200,6 +200,17 @@ app.put('/admin/user/:id', checkAdmin, (req, res) => {
     // Hash the password
     const hash = bcrypt.hashSync(password, saltRounds);
 
+    // Check if userId is undefined
+    if (userId === undefined) {
+        res.status(400).json({ success: false, error: 'User id is required' });
+        return;
+    }
+    // Check if idrole is undefined
+    if (idrole === undefined) {
+        res.status(400).json({ success: false, error: 'Role id is required' });
+        return;
+    }
+
     try {
         // Update user information in the database
         const updateQuery = `

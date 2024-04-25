@@ -178,65 +178,109 @@ fetch('/roles/data')
     })
     .catch(error => console.error('Error fetching role data:', error));
 
-// Function to handle edit user
+// Function to handle opening the edit user modal
 function editUser(userId) {
-    console.log('userId:', userId);
+    // Check if userId is defined
+    if (userId === undefined) {
+        console.error('User ID is undefined');
+        return;
+    }
+
     // Fetch the user data by userId
     fetch(`/admin/user/${userId}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(user => {
-        console.log('User data:', user);
         // Populate the form fields with user data
         document.getElementById('usernameInput').value = user.username;
         document.getElementById('firstnameInput').value = user.firstname;
         document.getElementById('lastnameInput').value = user.lastname;
         document.getElementById('emailInput').value = user.email;
         document.getElementById('passwordInput').value = user.password;
-        document.getElementById('roleInput').value = user.role;
-        
+
+        // Set the selected role in the dropdown
+        const roleSelect = document.getElementById('roleSelectEdit');
+        // Use user.idrole instead of user.role
+        roleSelect.value = user.idrole;
+
+        // Populate the role dropdown with options fetched from the server
+        fetchRolesForEdit(); // Call fetchRolesForEdit after user data is fetched
+
+        // Set the user ID as a data attribute on the form element
+        document.getElementById('editUserForm').dataset.userId = userId;
+
         // Display the form for editing
         document.getElementById('editUserForm').style.display = 'block';
-
-        // Set the data-user-id attribute of the form
-        document.getElementById('editUserForm').dataset.userId = userId;
     })
     .catch(error => console.error('Error fetching user data for editing:', error));
 }
 
-// Get the form element
-const formUser = document.getElementById('editUserForm');
-
-// Add an event listener for the submit event
-formUser.addEventListener('submit', function(event) {
-    // Prevent the form from being submitted normally
-    event.preventDefault();
-
-    // Get the userId from the form's data-user-id attribute
-    const userId = formUser.dataset.userId;
-
-    // Get the form data
-    const formData = new FormData(formUser);
-
-    // Create an object to hold the form data
-    const user = {};
-
-    // Populate the user object with the form data
-    for (let [key, value] of formData) {
-        user[key] = value;
+// Fetch role names from the server and populate the dropdown in the edit user modal
+async function fetchRolesForEdit() {
+    try {
+        const response = await fetch('/roles');
+        const roles = await response.json();
+        const roleSelect = document.getElementById('roleSelectEdit');
+        roleSelect.innerHTML = ''; // Clear previous options
+        roles.forEach(role => {
+            const option = document.createElement('option');
+            option.value = role.id;
+            option.textContent = role.name;
+            roleSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Failed to fetch roles for edit:', error);
     }
+}
 
-    // Send a PUT request to update the user
-    fetch(`/admin/user/${userId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-    })
-    .then(response => response.json())
-    .then(data => console.log('User updated:', data))
-    .catch(error => console.error('Error updating user:', error));
-});
+// Function to handle form submission for updating a user
+function saveUser() {
+    // Get the form element
+    const form = document.getElementById('editUserForm');
+
+    // Add an event listener for the submit event
+    form.addEventListener('submit', function(event) {
+        // Prevent the form from being submitted normally
+        event.preventDefault();
+
+        // Get the userId from the form's data-user-id attribute
+        const userId = form.dataset.userId;
+
+        // Get the form data
+        const formData = new FormData(form);
+
+        // Create an object to hold the form data
+        const user = {};
+
+        // Populate the user object with the form data
+        for (let [key, value] of formData) {
+            user[key] = value;
+        }
+
+        // Ensure idrole is included in the user object
+        user.idrole = document.getElementById('roleSelectEdit').value;
+
+        // Send a PUT request to update the user
+        fetch(`/admin/user/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('User updated:', data);
+            // Refresh the page after the user is updated
+            location.reload();
+        })
+        .catch(error => console.error('Error updating user:', error));
+    });
+}
 
 // Function to handle delete user
 function deleteUser(userId) {

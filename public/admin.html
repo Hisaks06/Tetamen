@@ -90,10 +90,11 @@
                     <input type="text" id="emailInput" name="email" required><br>
                     <label for="passwordInput">Password:</label>
                     <input type="password" id="passwordInput" name="password" required><br>
-                    <label for="roleInput">Role:</label>
-                    <input type="text" id="roleInput" name="role" required><br>
+                    <!-- Dropdown for selecting role -->
+                    <label for="roleSelectEdit">Role:</label>
+                    <select id="roleSelectEdit" name="role"></select><br>
                     <input type="submit" value="Save Changes">
-                    <button onclick= "editUser()">Save</button>
+                    <button onclick="saveUser()">Save</button>
                 </form>
             </div>
         </div>
