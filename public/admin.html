@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<div id="student">You don't have acess to this page</div>
+<body id="adminTab">
+
+    <input type="checkbox" name="" id="check">
+    <div class="menu">
+        <label for="check" id="label" style="
+        margin-bottom: 0px;">
+            <span class="fas fa-times" id="times"></span>
+            <span class="fas fa-bars" id="bars"></span>
+        </label>
+        <div class="head">Meny</div>
+        <ol>
+            <li class="nav"><a href="/home" class="tab"><i class="fas fa-home"></i>Hjem</a></li>
+            <li class="nav" id="adminTab"><a href="/admin" class="tab"><i class="fas fa-user-cog"></i>Admin</a></li>
+            <li class="nav"><a href="/logout" class="tab""><i class="fas fa-door-open"></i>Logg Ut</a></li>
+        </ol>
+    </div>
+    <br>
+    <h1>Admin</h1>
+    <article>
+        <h2>Project User</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="adminDataBody"></tbody>
+        </table>
+        <button id="addUserBtn">Add User</button>
+
+        <!-- Add User Modal -->
+        <div id="addUserModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="addUserForm">
+                    <h2>Add User:</h2>
+                    <br>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required><br>
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required><br>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required><br>
+                    <label for="role">Rolle:</label>
+                    <select name="role" id="roleSelect">
+                    </select><br>
+                    <button type="submit">Add User</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit User Modal -->
+        <br>
+        <div id="editUserModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="editUserForm" style="display: none;">
+                    <h2>Edit User:</h2>
+                    <br>
+                    <label for="usernameInput">Username:</label>
+                    <input type="text" id="usernameInput" name="username" required><br>
+                    <label for="firstnameInput">First Name:</label>
+                    <input type="text" id="firstnameInput" name="firstname" required><br>
+                    <label for="lastnameInput">Last Name:</label>
+                    <input type="text" id="lastnameInput" name="lastname" required><br>
+                    <label for="emailInput">Email:</label>
+                    <input type="text" id="emailInput" name="email" required><br>
+                    <label for="passwordInput">Password:</label>
+                    <input type="password" id="passwordInput" name="password" required><br>
+                    <label for="roleInput">Role:</label>
+                    <input type="text" id="roleInput" name="role" required><br>
+                    <input type="submit" value="Save Changes">
+                    <button onclick= "editUser()">Save</button>
+                </form>
+            </div>
+        </div>
+    </article>
+    <article>
+        <h2>Project Role</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="roleDataBody"></tbody>
+        </table>
+        <button id="addRoleBtn">Add Role</button>
+
+        <!-- Add Role Modal -->
+        <div id="addRoleModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="addRoleForm">
+                    <h2>Add Role</h2>
+                    <br>
+                    <label for="role">Name:</label>
+                    <input type="text" id="role" name="rolename" required><br>
+                    <button type="submit">Add Role</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Role Modal -->
+        <br>
+        <div id="editRoleModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="editRoleForm" style="display: none;">
+                    <h2>Edit Role:</h2>
+                    <br>
+                    <label for="roleNameInput">Name:</label>
+                    <input type="text" id="roleNameInput" name="rolename" required><br>
+                    <input type="submit" value="Save Changes">
+                    <button onclick="saveChanges()">Save</button>
+                </form>
+            </div>
+        </div>
+    </article>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,669 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+color: #333;
+margin: 0;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+h1 {
+text-align: center;
+margin-top: 50px;
+}
+
+form {
+display: block;
+width: 300px;
+margin: 0 auto;
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+article {
+width: auto;
+margin: 10px;
+background-color: #ffffffaf;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.header {
+margin: 5;
+}
+label {
+display: block;
+margin-bottom: 10px;
+}
+
+.buttonForm {
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+input[type="text"],
+textarea {
+display: block;
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+#addUserForm{
+  display: none;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+#addProjectForm{
+  display: none;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#addRoleForm{
+  display: none;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#addCategoryForm{
+  display: none;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+button[type="submit"] {
+background-color: #008CBA;
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+text-decoration: none;
+}
+
+button {
+background-color: #008CBA;
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+object-position: center;
+text-decoration: none;
+display: inline-block;
+}
+
+#signup-button {
+background-color: #008CBA;
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+object-position: center;
+text-decoration: none;
+display: inline-block;
+}
+
+ul {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.list {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+margin-bottom: 20px;
+}
+
+li h2 {
+margin-top: 0;
+}
+
+li p {
+margin-bottom: 0;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.850);
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Add transition for smooth animation */
+}
+
+/* Right-aligned link */
+.navbar .login {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.navbar .active {
+  background-color: rgba(70, 71, 92, 0.500);
+}
+
+/* Add animation on hover */
+.navbar a:hover {
+  animation: scale 0.3s ease-in-out;
+}
+
+/* Define the scale animation */
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive navbar */
+@media screen and (max-width: 600px) {
+  .navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .navbar .login {
+    float: none;
+    text-align: right;
+  }
+}
+
+#loginForm {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#registerForm {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#loginFeedback{
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+#center{
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+.center{
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+:root {
+  --background-color-light: #f2f2f2; /* Light mode background color */
+  --text-color-light: #333; /* Light mode text color */
+  --background-color-dark: #000; /* Dark mode background color */
+  --text-color-dark: #f2f2f2; /* Dark mode text color */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  margin: 0;
+  background-image: url("../img/test.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.container {
+  display: flex;
+}
+
+.vg1, .vg2, .vg3 {
+  flex: 1;
+  margin: 0 auto; /* Optional: Centers the content within each container */
+}
+
+.main{
+  display: flex;
+  transform: rotate(30deg);
+}
+.wrapper2{
+  transform: rotate(30deg);
+}
+.wrapper .gear{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 20px;
+  background: radial-gradient(transparent 40%,silver 40%);
+  animation: gear1 6s linear infinite;
+}
+@keyframes gear1{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
+.wrapper2 .gear{
+  background: radial-gradient(transparent 40%,grey 40%);
+  animation: gear2 6s linear infinite;
+}
+@keyframes gear2{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(-360deg);
+  }
+}
+.wrapper .gear span{
+  display:block;
+  position:absolute;
+  background: linear-gradient(to top, transparent 70%,silver 30%);
+  height: 160px;
+  width: 70px;
+  top: -35px;
+  left: 50%;
+  border-radius: 10px;
+  transform-origin:bottom;
+  transform: translateX(-50%) rotate(calc(var(--i)* 60deg));
+}
+.wrapper2 .gear span{
+  background: linear-gradient(to top, transparent 70%,grey 30%);
+}
+.cog{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
+}
+
+.menu {
+  height: 100%;
+  width: 250px;
+  position:absolute;
+  background: #161616;
+  z-index: 1;
+  transition: 0.5s ease;
+  transform: translateX(-250px);
+}
+.menu .head{
+ color: #fbfdce;
+ font-size: 30px;
+ font-weight: bold;
+ padding: 30px;
+ text-transform: uppercase;
+ text-align: center;
+ letter-spacing: 3px;
+ background: linear-gradient(30deg,#df0155,#ed4901);
+}
+ol{
+  width: 100%;
+  list-style: none;
+}
+ol .nav{
+  display: block;
+  width: 100%;
+}
+ol .nav .tab{
+  color: #fbfdce;
+  padding: 15px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  letter-spacing: 1px;
+  position: relative;
+  transition: 0.3s ease;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+ol .nav .tab i{
+  width: 70px;
+  font-size: 25;
+  text-align: center;
+  padding-left: 30px;
+}
+ol .nav:hover .tab{
+  background: #3f3f3f;
+  color: #00eaff;
+}
+input{
+  -webkit-appearance: none;
+  visibility: hidden;
+  display: none;
+}
+
+.userdata {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+span{
+  position:absolute;
+  right: -40px;
+  top: 30px;
+  font-size: 25px;
+  border-radius: 3px;
+  color: #fff;
+  padding: 3px 8px;
+  cursor: pointer;
+  background: #000;
+}
+#bars{
+  background: limegreen;
+}
+#check:checked ~ .menu{
+  transform: translateX(0)
+}
+#check:checked ~ .menu #bars{
+  display: none;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 750px;
+  max-height: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Watermark style */
+.watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity */
+  font-size: 24px;
+  pointer-events: none; /* Ensure the watermark doesn't interfere with clicking */
+}
+
+@media screen and (max-width: 600px) {
+  .art{
+    max-width: 750px;
+    max-height: 100%;
+    position: relative;
+    margin: auto;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+:root {
+  --calendar-bg-color: #262829;
+  --calendar-font-color: #fff;
+  --weekdays-border-bottom-color: #404040;
+  --calendar-date-hover-color: #b3b3b3;
+  --calendar-dummy-color: #505050;
+  --calendar-current-date-color: #1b1f21;
+  --calendar-today-color: linear-gradient(to bottom, #03a9f4, #2196f3);
+}
+.calendar {
+  background-color: var(--calendar-bg-color);
+  color: var(--calendar-font-color);
+  border-radius: var(--calendar-border-radius);
+  max-width: 450px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px var(--calendar-bg-color);
+}
+.calendar_inner {
+  padding: 2rem;
+  position: relative;
+}
+.calendar_headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.fa-solid.fa-arrow-left,
+.fa-solid.fa-arrow-right {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.current_datetime {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--calendar-current-date-color);
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+.current_datetime .daytxt {
+  background-color: green;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: var(--calendar-font-color);
+}
+.days_date ul {
+  list-style-type: none;
+}
+.days_date .days,
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+.days_date .days {
+  margin: 1rem 0;
+}
+.days_date .days li {
+  border-bottom: 2px solid var(--weekdays-border-bottom-color);
+  margin: 0 0.2rem;
+}
+.dates li {
+  padding: 0.5rem;
+  margin: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--calendar-font-color);
+}
+.days_date .dates li:hover {
+  background-color: var(--calendar-date-hover-color);
+  color: var(--calendar-bg-color);
+}
+.days_date .dates li.active {
+  background: var(--calendar-today-color);
+}
+.days_date .dummy {
+  color: var(--calendar-dummy-color);
+}
+
+.calendar_date{
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+/* Add more specific styling for input fields within the form */
+form input[type="text"],
+form input[type="password"],
+form input[type="mail"],
+form input[type="number"],
+form textarea {
+    visibility: visible; /* Ensure input fields are visible */
+    display: inline-block; /* Ensure input fields are displayed */
+}
+
+/* Override any other styles that might affect input fields within the form */
+form input,
+form textarea {
+    /* Add your custom styles here */
+}
+
+/* CSS for table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
